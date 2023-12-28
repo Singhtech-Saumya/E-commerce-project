@@ -1,0 +1,72 @@
+    Gemail
+--------------
+public void sendEmail(String to,String from,String msg)
+boolean flag=false;
+
+Properties properties=new Properties();
+properties.put("email.smtp);
+properties.put("email.smtp);
+properties.put("email.smtp);
+properties.put("email.smtp);
+
+Session session=Session.getInstance(properties,new Authenticatior(){
+@Override
+protected PasswordAuthentication getPasswordAuthentcation(){
+return super.getPasswordAuthentication(userName,password);
+
+}
+);
+
+try{
+Message msg=new MimeMessage();
+msg.setReceipents(Message.ReceipentType.To,new InternetAddress(to));
+msg.setFrom(new InternetAddress(from));
+msg.setSubject(subject);
+msg.setText(message);
+Transport.send(msg);
+boolean flag=true;
+
+}
+
+catch{
+
+}
+
+
+
+return flag;
+
+
+
+Main
+-------------
+
+public static void main(String[] args){
+
+String to="saumyasinghfly@gmail.com";
+String from="saumyasinghind@gmail.com";
+String subject="Update Review";
+String msg="Update has been done";
+
+
+Gemail gmail=new Gemail();
+boolean b=gmail.sedMail(to,from,subject,msg);
+
+if(b){
+	System.out.prntln("Message s sent successfully");
+	}
+else{
+	System.out.println("Message has not been delvered");
+	}
+
+}
+
+
+pom.xml Depenency
+
+<!-- https://mvnrepository.com/artifact/jakarta.mail/jakarta.mail-api -->
+<dependency>
+    <groupId>jakarta.mail</groupId>
+    <artifactId>jakarta.mail-api</artifactId>
+    <version>2.1.2</version>
+</dependency>
