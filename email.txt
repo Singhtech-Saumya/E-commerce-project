@@ -1,4 +1,4 @@
-    Gemail
+    Gmail
 --------------
 public void sendEmail(String to,String from,String msg)
 boolean flag=false;
